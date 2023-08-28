@@ -12,7 +12,7 @@ const schema = yup
     lastName: yup.string().required(),
     address: yup.string().required(),
     email: yup.string().required(),
-    mobileNo:yup.number().required(),
+    mobileNo: yup.number().required(),
     password: yup
       .string()
       .required("Please enter your password.")
@@ -24,7 +24,7 @@ const schema = yup
   })
   .required();
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const {
     register,
     handleSubmit,
@@ -47,36 +47,39 @@ const LoginForm = () => {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <h1>Register Form</h1>
           </div>
-          <Box>
-            <FormControl>
-              <TextField
-                {...register("firstName")}
-                placeholder="First Name"
-                id="outlined-basic"
-                label="First Name"
-                variant="outlined"
-                margin="normal"
-                size="small"
-              />
-              <Box sx={{ color: "error.main", textTransform: "capitalize" }}>
-                {errors.firstName?.message}
-              </Box>
-            </FormControl>
-
-            <FormControl sx={{ marginLeft: "36px" }}>
-              <TextField
-                {...register("lastName")}
-                placeholder="Last Name"
-                id="outlined-basic"
-                label="Last Name"
-                variant="outlined"
-                margin="normal"
-                size="small"
-              />
-              <Box sx={{ color: "error.main", textTransform: "capitalize" }}>
-                {errors.lastName?.message}
-              </Box>
-            </FormControl>
+          <Box style={{ display: "flex" }}>
+            <Box sx={{ width: "240px" }}>
+              <FormControl fullWidth>
+                <TextField
+                  {...register("firstName")}
+                  placeholder="First Name"
+                  id="outlined-basic"
+                  label="First Name"
+                  variant="outlined"
+                  margin="normal"
+                  size="small"
+                />
+                <Box sx={{ color: "error.main", textTransform: "capitalize" }}>
+                  {errors.firstName?.message}
+                </Box>
+              </FormControl>
+            </Box>
+            <Box sx={{ width: "240px", marginLeft: "20px" }}>
+              <FormControl fullWidth>
+                <TextField
+                  {...register("lastName")}
+                  placeholder="Last Name"
+                  id="outlined-basic"
+                  label="Last Name"
+                  variant="outlined"
+                  margin="normal"
+                  size="small"
+                />
+                <Box sx={{ color: "error.main", textTransform: "capitalize" }}>
+                  {errors.lastName?.message}
+                </Box>
+              </FormControl>
+            </Box>
           </Box>
           <Box>
             <FormControl fullWidth>
@@ -167,4 +170,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
